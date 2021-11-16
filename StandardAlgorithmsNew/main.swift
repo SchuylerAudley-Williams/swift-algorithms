@@ -8,5 +8,7 @@
 import Foundation
 
 let a = 10
-print("Hello, World! \(a)")
 
+if a == 10 {
+    print("Hello, World! \(a)")
+}
