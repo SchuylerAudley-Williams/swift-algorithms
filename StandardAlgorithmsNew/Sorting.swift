@@ -11,8 +11,14 @@ class Sorting {
     func bubbleSort(_ data: [Int]) -> [Int] {
         if data.count == 0 {
             return []
-        } else {
-            return [1,2,3,5,9]
+        }
+        for i in data.count()-1 {
+            if data[i] > data[i+1] {
+                let temp = data[i]
+                data[i] = data[i+1]
+                data[i+1] = temp
+            }
+            return data
         }
     }
 }

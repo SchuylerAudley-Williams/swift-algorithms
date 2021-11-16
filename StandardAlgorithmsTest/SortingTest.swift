@@ -12,18 +12,33 @@ class SortingTest: XCTestCase {
     func testBubbleSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
         //arrange
         let sorting = Sorting()
-        let data = [3,5,1,2,9]
-        let expected = [1,2,3,5,9]
+        
+        let testCases = [(input: [3,5,1,2,9], expected: [1,2,3,5,9]), (input: [30,15,5,2,39], expected: [2,5,15,30,39])]
+        
+        //act
+        //assert
+        for testCase in testCases {
+            let actual = sorting.bubbleSort(testCase.input)
+            XCTAssertEqual(actual, testCase.expected)
+        }
+    }
+    
+    func testBubbleSortWithEmptyArrayReturnsEmptyArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [Int]()
+        let expected = [Int]()
         //act
         let actual = sorting.bubbleSort(data)
         //assert
         XCTAssertEqual(actual, expected)
     }
     
-    func testBubbleSortWithEmptyArrayReturnsEmptyArray() {
+    func testBubbleSortWithSortedArrayReturnsSortedArray() {
+        //arrange
         let sorting = Sorting()
-        let data = [Int]()
-        let expected = [Int]()
+        let data = [1,4,9,21,34]
+        let expected = [1,4,9,21,34]
         //act
         let actual = sorting.bubbleSort(data)
         //assert
