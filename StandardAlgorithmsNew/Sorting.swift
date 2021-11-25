@@ -25,7 +25,7 @@ class Sorting {
         return data
     }
     
-    func quickSort(unsortedData: [Int]) -> [Int] {
-        return 
+    func mergeSort(unsortedData: [Int]) -> [Int] {
+        return unsortedData
     }
 }

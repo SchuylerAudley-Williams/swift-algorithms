@@ -45,23 +45,52 @@ class SortingTest: XCTestCase {
         XCTAssertEqual(actual, expected)
     }
     
-    func testBubbleSortPerformance() {
+    func testBubbleSortPerformanceN5() {
         //arrange
         let sorting = Sorting()
-        let data = [4,767,23,75,99]
+        var data: [Int] = []
+        for _ in 0..<5 {
+            data.append(Int.random(in: 0..<100))
+        }
         //act
         measure {
             _ = sorting.bubbleSort(unsortedData: data)
         }
     }
     
-    /*func testQuickSortWithUnsortedIntegerArrayReturnsSortedArray() {
+    func testBubbleSortPerformanceN50() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<50 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.bubbleSort(unsortedData: data)
+        }
+    }
+    
+    func testBubbleSortPerformanceN500() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<500 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.bubbleSort(unsortedData: data)
+        }
+    }
+    
+    /*func testMergeSortWithUnsortedIntegerArrayReturnsSortedArray() {
         //arrange
         let sorting = Sorting()
         let data = [13,2,87,5,34]
         let expected = [2,5,13,34,87]
         //act
-        let actual = sorting.quickSort(unsortedData: data)
+        let actual = sorting.mergeSort(unsortedData: data)
         //assert
         XCTAssertEqual(actual, expected)
     }*/
