@@ -9,7 +9,7 @@ import XCTest
 
 class SortingTest: XCTestCase {
 
-    func testBubbleSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
+    /*func testBubbleSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
         //arrange
         let sorting = Sorting()
         
@@ -82,9 +82,9 @@ class SortingTest: XCTestCase {
         measure {
             _ = sorting.bubbleSort(unsortedData: data)
         }
-    }
+    }*/
     
-    /*func testMergeSortWithUnsortedIntegerArrayReturnsSortedArray() {
+    func testMergeSortWithUnsortedIntegerArrayReturnsSortedArray() {
         //arrange
         let sorting = Sorting()
         let data = [13,2,87,5,34]
@@ -93,7 +93,7 @@ class SortingTest: XCTestCase {
         let actual = sorting.mergeSort(unsortedData: data)
         //assert
         XCTAssertEqual(actual, expected)
-    }*/
+    }
     
 
 }
