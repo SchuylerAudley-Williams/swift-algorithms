@@ -45,5 +45,26 @@ class SortingTest: XCTestCase {
         XCTAssertEqual(actual, expected)
     }
     
+    func testBubbleSortPerformance() {
+        //arrange
+        let sorting = Sorting()
+        let data = [4,767,23,75,99]
+        //act
+        measure {
+            _ = sorting.bubbleSort(unsortedData: data)
+        }
+    }
+    
+    /*func testQuickSortWithUnsortedIntegerArrayReturnsSortedArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [13,2,87,5,34]
+        let expected = [2,5,13,34,87]
+        //act
+        let actual = sorting.quickSort(unsortedData: data)
+        //assert
+        XCTAssertEqual(actual, expected)
+    }*/
+    
 
 }

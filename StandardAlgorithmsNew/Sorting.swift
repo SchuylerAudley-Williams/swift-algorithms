@@ -24,4 +24,8 @@ class Sorting {
         }
         return data
     }
+    
+    func quickSort(unsortedData: [Int]) -> [Int] {
+        return 
+    }
 }
