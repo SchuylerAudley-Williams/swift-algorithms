@@ -18,7 +18,7 @@ class SortingTest: XCTestCase {
         //act
         //assert
         for testCase in testCases {
-            let actual = sorting.bubbleSort(testCase.input)
+            let actual = sorting.bubbleSort(unsortedData: testCase.input)
             XCTAssertEqual(actual, testCase.expected)
         }
     }
@@ -29,7 +29,7 @@ class SortingTest: XCTestCase {
         let data = [Int]()
         let expected = [Int]()
         //act
-        let actual = sorting.bubbleSort(data)
+        let actual = sorting.bubbleSort(unsortedData: data)
         //assert
         XCTAssertEqual(actual, expected)
     }
@@ -40,7 +40,7 @@ class SortingTest: XCTestCase {
         let data = [1,4,9,21,34]
         let expected = [1,4,9,21,34]
         //act
-        let actual = sorting.bubbleSort(data)
+        let actual = sorting.bubbleSort(unsortedData: data)
         //assert
         XCTAssertEqual(actual, expected)
     }

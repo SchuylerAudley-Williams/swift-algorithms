@@ -8,17 +8,20 @@
 import Foundation
 
 class Sorting {
-    func bubbleSort(_ data: [Int]) -> [Int] {
+    func bubbleSort(unsortedData: [Int]) -> [Int] {
+        var data = unsortedData
         if data.count == 0 {
             return []
         }
-        for i in data.count()-1 {
-            if data[i] > data[i+1] {
-                let temp = data[i]
-                data[i] = data[i+1]
-                data[i+1] = temp
+        for _ in 0...data.count-1 {
+            for j in 0...data.count-2 {
+                if data[j] > data[j+1] {
+                    let temp = data[j]
+                    data[j] = data[j+1]
+                    data[j+1] = temp
+                }
             }
-            return data
         }
+        return data
     }
 }
