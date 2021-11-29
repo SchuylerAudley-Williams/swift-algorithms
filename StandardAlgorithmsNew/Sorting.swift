@@ -55,4 +55,8 @@ class Sorting {
             return merge(leftArray: mergeSort(unsortedData: leftArray), rightArray: mergeSort(unsortedData: rightArray))
         }
     }
+    
+    func quickSort(unsortedData: [Int]) -> [Int] {
+        return unsortedData
+    }
 }

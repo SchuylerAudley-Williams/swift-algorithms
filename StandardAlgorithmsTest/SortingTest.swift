@@ -157,6 +157,4 @@ class SortingTest: XCTestCase {
             _ = sorting.mergeSort(unsortedData: data)
         }
     }
-    
-
 }
