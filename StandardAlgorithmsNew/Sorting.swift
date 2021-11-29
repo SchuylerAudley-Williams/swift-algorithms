@@ -8,6 +8,7 @@
 import Foundation
 
 class Sorting {
+    
     func bubbleSort(unsortedData: [Int]) -> [Int] {
         var data = unsortedData
         if data.count == 0 {
@@ -25,8 +26,33 @@ class Sorting {
         return data
     }
     
-    func mergeSort(unsortedData: [Int]) -> [Int] {
+    func merge(leftArray: [Int], rightArray: [Int]) -> [Int] {
+        var orderedArray = [Int]()
+        var left = leftArray
+        var right = rightArray
         
-        return unsortedData
+        while left.count > 0 && right.count > 0 {
+            if left.first! < right.first! {
+                orderedArray.append(left.removeFirst())
+            } else {
+                orderedArray.append(right.removeFirst())
+            }
+        }
+        
+        return orderedArray + left + right
+        
+    }
+    
+    func mergeSort(unsortedData: [Int]) -> [Int] {
+        if unsortedData.count <= 1 {
+            return unsortedData
+        } else {
+            let middle = unsortedData.count/2
+            
+            let leftArray = Array(unsortedData[0..<middle])
+            let rightArray = Array(unsortedData[middle..<unsortedData.count])
+            
+            return merge(leftArray: mergeSort(unsortedData: leftArray), rightArray: mergeSort(unsortedData: rightArray))
+        }
     }
 }

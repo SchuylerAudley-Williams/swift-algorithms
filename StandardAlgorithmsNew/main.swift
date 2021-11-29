@@ -32,7 +32,7 @@ while !end {
                 let exampleArray = [5,23,67,111,3,90,45,75]
                 print("""
 Example:
-    Input: 5,23,67,111,3,90,45,75
+    Input: \(exampleArray)
     Output: \(sorting.bubbleSort(unsortedData: exampleArray))
 """)
             case "2":

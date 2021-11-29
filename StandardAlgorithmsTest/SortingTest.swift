@@ -9,7 +9,7 @@ import XCTest
 
 class SortingTest: XCTestCase {
 
-    /*func testBubbleSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
+    func testBubbleSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
         //arrange
         let sorting = Sorting()
         
@@ -82,7 +82,7 @@ class SortingTest: XCTestCase {
         measure {
             _ = sorting.bubbleSort(unsortedData: data)
         }
-    }*/
+    }
     
     func testMergeSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
         //arrange
@@ -95,8 +95,68 @@ class SortingTest: XCTestCase {
         for testCase in testCases {
             let actual = sorting.mergeSort(unsortedData: testCase.input)
             XCTAssertEqual(actual, testCase.expected)
+        }
     }
-}
+    func testMergeSortWithEmptyArrayReturnsEmptyArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [Int]()
+        let expected = [Int]()
+        //act
+        let actual = sorting.mergeSort(unsortedData: data)
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testMergeSortWithSortedArrayReturnsSortedArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [1,4,9,21,34]
+        let expected = [1,4,9,21,34]
+        //act
+        let actual = sorting.mergeSort(unsortedData: data)
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+    
+    func testMergeSortPerformanceN5() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<5 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.mergeSort(unsortedData: data)
+        }
+    }
+    
+    func testMergeSortPerformanceN50() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<50 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.mergeSort(unsortedData: data)
+        }
+    }
+    
+    func testMergeSortPerformanceN500() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<500 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.mergeSort(unsortedData: data)
+        }
+    }
     
 
 }
