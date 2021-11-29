@@ -56,7 +56,24 @@ class Sorting {
         }
     }
     
-    func quickSort(unsortedData: [Int]) -> [Int] {
-        return unsortedData
+    func insertionSort(unsortedData: [Int]) -> [Int]{
+        if unsortedData.count > 1 {
+            var array = unsortedData
+            
+            for index in 1..<array.count {
+                let value = array[index]
+                var position = index
+
+                while position > 0 && array[position - 1] > value {
+                array[position] = array[position - 1]
+                position -= 1
+                }
+
+                array[position] = value
+            }
+            return array
+        } else {
+            return unsortedData
+        }
     }
 }

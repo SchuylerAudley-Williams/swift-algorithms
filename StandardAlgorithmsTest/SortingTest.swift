@@ -157,4 +157,79 @@ class SortingTest: XCTestCase {
             _ = sorting.mergeSort(unsortedData: data)
         }
     }
+
+    func testInsertionSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
+        //arrange
+        let sorting = Sorting()
+        
+        let testCases = [(input: [3,5,1,2,9], expected: [1,2,3,5,9]), (input: [30,15,5,2,39], expected: [2,5,15,30,39])]
+        
+        //act
+        //assert
+        for testCase in testCases {
+            let actual = sorting.insertionSort(unsortedData: testCase.input)
+            XCTAssertEqual(actual, testCase.expected)
+        }
+    }
+
+    func testInsertionSortWithEmptyArrayReturnsEmptyArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [Int]()
+        let expected = [Int]()
+        //act
+        let actual = sorting.insertionSort(unsortedData: data)
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+
+    func testInsertionSortWithSortedArrayReturnsSortedArray() {
+        //arrange
+        let sorting = Sorting()
+        let data = [1,4,9,21,34]
+        let expected = [1,4,9,21,34]
+        //act
+        let actual = sorting.insertionSort(unsortedData: data)
+        //assert
+        XCTAssertEqual(actual, expected)
+    }
+
+    func testInsertionSortPerformanceN5() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<5 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.insertionSort(unsortedData: data)
+        }
+    }
+
+    func testInsertionSortPerformanceN50() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<50 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.insertionSort(unsortedData: data)
+        }
+    }
+
+    func testInsertionSortPerformanceN500() {
+        //arrange
+        let sorting = Sorting()
+        var data: [Int] = []
+        for _ in 0..<500 {
+            data.append(Int.random(in: 0..<100))
+        }
+        //act
+        measure {
+            _ = sorting.insertionSort(unsortedData: data)
+        }
+    }
 }

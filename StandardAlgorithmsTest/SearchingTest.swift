@@ -7,8 +7,10 @@
 
 import XCTest
 
+let sorting = Sorting()
+
 class SearchingTest: XCTestCase {
-   /* func testLinearSearchWithIntegerInInputArrayReturnsTrue() {
+    func testLinearSearchWithIntegerInInputArrayReturnsTrue() {
         //arrange
         let searching = Searching()
         
@@ -48,7 +50,49 @@ class SearchingTest: XCTestCase {
         //assert
         let actual = searching.linearSearch(array: array, target: target)
         XCTAssertEqual(actual, expected)
-        }*/
+        }
+    
+    func testLinearSearchPerformanceN5() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<5 {
+            array.append(Int.random(in: 0..<100))
+        }
+        let target = array[Int.random(in: 0..<5)]
+        //act
+        measure {
+            _ = searching.linearSearch(array: array, target: target)
+        }
+    }
+    
+    func testLinearSearchPerformanceN50() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<50 {
+            array.append(Int.random(in: 0..<100))
+        }
+        let target = array[Int.random(in: 0..<50)]
+        //act
+        measure {
+            _ = searching.linearSearch(array: array, target: target)
+        }
+    }
+    
+    func testLinearSearchPerformanceN500() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<500 {
+            array.append(Int.random(in: 0..<100))
+        }
+        let target = array[Int.random(in: 0..<500)]
+        //act
+        measure {
+            _ = searching.linearSearch(array: array, target: target)
+        }
+    }
     
     func testBinarySearchWithIntegerInInputArrayReturnsTrue() {
         //arrange
@@ -91,4 +135,49 @@ class SearchingTest: XCTestCase {
         let actual = searching.binarySearch(array: array, target: target)
         XCTAssertEqual(actual, expected)
         }
+    
+    func testBinarySearchPerformanceN5() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<5 {
+            array.append(Int.random(in: 0..<100))
+        }
+        let target = array[Int.random(in: 0..<5)]
+        array = sorting.mergeSort(unsortedData: array)
+        //act
+        measure {
+            _ = searching.binarySearch(array: array, target: target)
+        }
+    }
+    
+    func testBinarySearchPerformanceN50() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<50 {
+            array.append(Int.random(in: 0..<100))
+        }
+        array = sorting.mergeSort(unsortedData: array)
+        let target = array[Int.random(in: 0..<50)]
+        //act
+        measure {
+            _ = searching.binarySearch(array: array, target: target)
+        }
+    }
+    
+    func testBinarySearchPerformanceN500() {
+        //arrange
+        let searching = Searching()
+        var array: [Int] = []
+        for _ in 0..<500 {
+            array.append(Int.random(in: 0..<100))
+        }
+        array = sorting.mergeSort(unsortedData: array)
+        let target = array[Int.random(in: 0..<500)]
+        //act
+        measure {
+            _ = searching.binarySearch(array: array, target: target)
+        }
+    }
 }
