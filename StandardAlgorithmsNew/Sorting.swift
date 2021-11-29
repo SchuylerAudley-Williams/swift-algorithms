@@ -26,6 +26,7 @@ class Sorting {
     }
     
     func mergeSort(unsortedData: [Int]) -> [Int] {
+        
         return unsortedData
     }
 }

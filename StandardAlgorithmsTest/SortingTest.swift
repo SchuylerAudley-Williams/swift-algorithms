@@ -84,16 +84,19 @@ class SortingTest: XCTestCase {
         }
     }*/
     
-    func testMergeSortWithUnsortedIntegerArrayReturnsSortedArray() {
+    func testMergeSortWithUnsortedIntegerArrayReturnsSortedIntegerArray() {
         //arrange
         let sorting = Sorting()
-        let data = [13,2,87,5,34]
-        let expected = [2,5,13,34,87]
+        
+        let testCases = [(input: [3,5,1,2,9], expected: [1,2,3,5,9]), (input: [30,15,5,2,39], expected: [2,5,15,30,39])]
+        
         //act
-        let actual = sorting.mergeSort(unsortedData: data)
         //assert
-        XCTAssertEqual(actual, expected)
+        for testCase in testCases {
+            let actual = sorting.mergeSort(unsortedData: testCase.input)
+            XCTAssertEqual(actual, testCase.expected)
     }
+}
     
 
 }
